@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        #coherence{
+            margin: auto;
+            width: 80%;
+            background-color: aqua;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        $$
+        a=\frac{\Gamma\left(\frac13\right)}{\sqrt{\pi}\Gamma\left(\frac56\right)}\approx 1.339
+        $$
+    </p>
+    <p>
+        $$
+        c=\frac{1}{a}\approx 0.7468
+        $$
+    </p>
+
+    <div>
+        <h4>von Ka&#769;rma&#769;n 风谱：</h4>
+        <p>
+            $$
+            S_u\left(k_1\right)=\frac{4\sigma_u^2 L_u}{\left[1+\left(2\pi a L_u k_1\right)^2\right]^{\frac56}}\Longrightarrow
+            S_u\left(k_1,k_2\right)=\frac43 \pi \left(a\sigma_u L_u\right)^2 \frac{1+\left(2\pi a L_u k_1\right)^2+\frac{11}{3}\left(2\pi a L_u k_2\right)^2}
+            {\left[1+\left(2\pi a L_u\right)^2\left(k_1^2 +k_2^2\right)\right]^{\frac73}}
+            $$
+        </p>
+        <p>
+            $$
+            S_w\left(k_1\right)=\frac{4\sigma_w^2 L_w\left[1+\frac{32}{3}\left(2\pi a L_wk_1\right)^2\right]}{\left[1+\left(4\pi a L_w k_1\right)^2\right]^{\frac{11}{6}}}
+            \Longrightarrow
+            S_w\left(k_1,k_2\right)=\frac{\frac{128}{9}\pi^3\left(2aL_w\right)^4\left(k_1^2+k_2^2\right)}{\left[1+\left(4\pi a L_w\right)^2\left(k_1^2+k_2^2\right)\right]^{\frac73}}
+            $$
+        </p>
+    </div>
+    
+
+    <h4>Bullen相关函数模型：</h4>
+    <p>
+        $$
+        B\left(\Delta y\right)=\frac{\left(\frac{\Delta y}{m}\right)^n}{2^n \Gamma\left(n\right)}\left[2K_n\left(\frac{\Delta y}{m}\right)-\frac{\Delta y}{m}K_{n-1}\left(\frac{\Delta y}{m}\right)\right]
+        $$
+    </p>
+    <h4>其中\(\Delta y\)为展向间距，\(m\)和\(n\)为控制形状和尺寸的参数。</h4>
+    
+    <div id="coherence">
+        <div class="Jakobsen">
+            <h4>Jakobsen相干函数模型：</h4>
+            <p>
+                $$
+                Coh_J\left(k_1,\Delta y\right)=\mathrm{exp}\left(-2\pi A_J \Delta y\right)
+                $$
+            </p>
+            <p>
+                $$
+                A_J=\frac{\left(\sqrt{c_2^2+\left(c_3 k_1 L\right)^2}\right)^{c_1}}{2\pi L}
+                $$
+            </p>
+            <h4>其两波数形式为：</h4>
+            <p>
+                $$
+                \Phi_J\left(k_1,k_2\right)=\frac{1}{\pi}\frac{A_J}{A_J^2+k_2^2}
+                $$
+            </p>
+        </div>
+
+        <div class="double exp">
+            <h4>双指数模型：</h4>
+            <p>
+                $$
+                Coh_{exp}\left(k_1,\Delta y\right)=\frac{\lambda \mathrm{exp}\left(-2\pi A_J \Delta y\right)-A_J \mathrm{exp}\left(-2\pi \lambda \Delta y\right)}{\lambda-A_J}
+                $$
+            </p>
+            <p>
+                $$
+                \lambda=\frac{\sqrt{a_1\left(2\pi b k_1\right)^{a_2}+a_3}}{2\pi b}
+                $$
+            </p>
+            <h4>两波数形式：</h4>
+            <p>
+                $$
+                \Phi_{exp}\left(k_1,k_2\right)=\frac{\lambda A_J}{\pi}\frac{\lambda+A_J}{\left(\lambda^2+k_2^2\right)\left(A_J^2+k_2^2\right)}
+                $$
+            </p>
+            <h4>展向修正项形式：</h4>
+            <p>
+                $$
+                F\left(k_1\right)=\frac{\lambda}{\lambda+A_J}
+                $$
+            </p>            
+        </div>
+
+        <div class="Kimura">
+            <h4>三参数Kimura模型：</h4>
+            <p>
+                $$
+                Coh_K\left(k_1,\Delta y\right)=\frac{2^{\frac16}}{\Gamma\left(\frac56\right)}\left[A_K^{\frac56}K_{\frac56}\left(A_K\right)-
+                \frac{A_K^{\frac{11}{6}}K_{\frac16}\left(A_K\right)}{B_K}\right]
+                $$
+            </p>
+            <p>
+                $$
+                A_K=\frac{c \Delta y}{\gamma L}\sqrt{1+\left[\left(\frac{2\pi}{c}\right)\left(\alpha L k_1\right)\right]^{\beta}}
+                $$
+            </p>
+            <p>
+                $$
+                B_K=1+\frac83 \left[\left(\frac{2\pi}{c}\right)\left(\alpha L k_1\right)\right]^{\beta}
+                $$
+            </p>
+            <h4>两波数形式为：</h4>
+            <p>
+                $$
+                \Phi\left(k_1,k_2\right)=\frac{2\Gamma\left(\frac43\right)}{\Gamma\left(\frac56\right)}\sqrt{\pi}A_K^{\frac53}
+                \left\{\frac{2\pi k_2^2 \left(1+\frac{5}{3B_K}\right)+A_K^2 \left(1-\frac{1}{B_K}\right)}{\left[\left(2\pi k_2\right)^2+A_K^2\right]^{\frac73}}\right\}
+                $$
+            </p>
+            <h4>展向修正项形式：</h4>
+            <p>
+                $$
+                F\left(k_1\right)=\frac{\Gamma\left(\frac56\right)}{2\pi^{\frac32}\Gamma\left(\frac43\right)}\frac{A_K}{A_J\left(1-\frac{1}{B_K}\right)}
+                $$
+            </p>            
+        </div>
+
+    </div>
+
+
+
+    
+
+
+
+
+</body>
+</html>
